@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attacker Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Malicious Page</h1>
+    <p>If the victim visits this page, their email will be changed to an attacker's email.</p>
+    
+    <form id="csrfForm" action="javascript:void(0);" method="POST" style="display:none;">
+        <input type="email" name="email" value="attacker@example.com">
+    </form>
+    
+    <script>
+        // Simulate CSRF attack by changing the email
+        localStorage.setItem('email', 'attacker@example.com'); // Store the attacker's email
+        alert("Email has been changed to attacker@example.com");
+        window.location.href = 'victim.html'; // Redirect back to victim page
+    </script>
+</body>
+</html>
